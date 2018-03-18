@@ -1,7 +1,6 @@
 package com.martialdev.hackaton.skipthedishes.orders.entities;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -49,7 +47,7 @@ public class MealOrder {
 	private String contact;
 	private long storeId;
 	@OneToMany(mappedBy = "mealOrder", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<MealOrderItem> mealOrderItem;
+	private Set<MealOrderItem> mealOrderItems;
 	private String status;
 	private Instant lastUpdate;
 	
@@ -90,10 +88,10 @@ public class MealOrder {
 		this.storeId = storeId;
 	}
 	public Set<MealOrderItem> getMealOrderItem() {
-		return mealOrderItem;
+		return mealOrderItems;
 	}
 	public void setMealOrderItem(Set<MealOrderItem> mealOrderItem) {
-		this.mealOrderItem = mealOrderItem;
+		this.mealOrderItems = mealOrderItem;
 	}
 	public String getStatus() {
 		return status;
@@ -110,7 +108,11 @@ public class MealOrder {
 
 	public double getTotal() {
 		
-		return 0;
+		double result = 0.0;
+		
+		result = mealOrderItems.stream().mapToDouble(MealOrderItem::getTotal).sum();
+		
+		return result;
 	}
 
 }

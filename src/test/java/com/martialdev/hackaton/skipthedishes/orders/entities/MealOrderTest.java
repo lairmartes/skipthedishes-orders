@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -17,11 +16,11 @@ public class MealOrderTest {
 	
 	@Mock
 	MealOrderItem itemOneMock;
+	@Mock
 	MealOrderItem itemTwoMock;
+	@Mock
 	MealOrderItem itemThreeMock;
-	List<MealOrderItem> mealOrderItemListMock;
 
-	
 	@Test
 	public void testTotalOrder() {
 		
@@ -36,8 +35,8 @@ public class MealOrderTest {
 		
 		Set<MealOrderItem> mockOrderItemSet = new HashSet<>();
 		mockOrderItemSet.add(itemOneMock);
-		mockOrderItemSet.add(itemOneMock);
-		mockOrderItemSet.add(itemOneMock);
+		mockOrderItemSet.add(itemTwoMock);
+		mockOrderItemSet.add(itemThreeMock);
 		
 		MealOrder mealOrderTest = new MealOrder();
 		mealOrderTest.setMealOrderItem(mockOrderItemSet);
