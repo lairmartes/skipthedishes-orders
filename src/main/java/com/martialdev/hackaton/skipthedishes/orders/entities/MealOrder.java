@@ -110,7 +110,9 @@ public class MealOrder {
 		
 		double result = 0.0;
 		
-		result = mealOrderItems.stream().mapToDouble(MealOrderItem::getTotal).sum();
+		if (mealOrderItems != null) {
+			result = mealOrderItems.stream().mapToDouble(MealOrderItem::getTotal).sum();
+		}
 		
 		return result;
 	}

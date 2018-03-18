@@ -39,11 +39,25 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<!--  use product entity to get data from Product REST api -->
+		<!-- TODO: using eclipse project dependency temporally
+		<dependency>
+			<groupId>com.martialdev.hackaton.skipthedishes</groupId>
+			<artifactId>products</artifactId>
+		</dependency>
+		 -->
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
