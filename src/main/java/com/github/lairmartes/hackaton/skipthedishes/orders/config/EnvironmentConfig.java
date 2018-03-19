@@ -1,4 +1,4 @@
-package com.martialdev.hackaton.skipthedishes.orders.config;
+package com.github.lairmartes.hackaton.skipthedishes.orders.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

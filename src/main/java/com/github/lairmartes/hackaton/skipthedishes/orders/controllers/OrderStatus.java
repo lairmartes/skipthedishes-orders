@@ -1,4 +1,4 @@
-package com.martialdev.hackaton.skipthedishes.orders.controllers;
+package com.github.lairmartes.hackaton.skipthedishes.orders.controllers;
 
 public enum OrderStatus {
 	

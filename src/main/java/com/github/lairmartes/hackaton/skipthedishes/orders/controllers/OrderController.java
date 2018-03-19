@@ -1,4 +1,4 @@
-package com.martialdev.hackaton.skipthedishes.orders.controllers;
+package com.github.lairmartes.hackaton.skipthedishes.orders.controllers;
 
 import java.util.Optional;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
-import com.martialdev.hackaton.skipthedishes.orders.entities.Order;
-import com.martialdev.hackaton.skipthedishes.orders.repos.OrderRepository;
+import com.github.lairmartes.hackaton.skipthedishes.orders.entities.Order;
+import com.github.lairmartes.hackaton.skipthedishes.orders.repos.OrderRepository;
 import com.martialdev.hackaton.skipthedishes.products.entities.Product;
 
 @RepositoryRestController

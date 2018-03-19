@@ -1,4 +1,4 @@
-package com.martialdev.hackaton.skipthedishes.orders;
+package com.github.lairmartes.hackaton.skipthedishes.orders;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.martialdev.hackaton.skipthedishes.orders.entities;
+package com.github.lairmartes.hackaton.skipthedishes.orders.entities;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import com.github.lairmartes.hackaton.skipthedishes.orders.entities.Order;
+import com.github.lairmartes.hackaton.skipthedishes.orders.entities.OrderItem;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OrderTest {

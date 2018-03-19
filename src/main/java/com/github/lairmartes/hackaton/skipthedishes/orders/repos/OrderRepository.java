@@ -1,4 +1,4 @@
-package com.martialdev.hackaton.skipthedishes.orders.repos;
+package com.github.lairmartes.hackaton.skipthedishes.orders.repos;
 
 import javax.transaction.Transactional;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.martialdev.hackaton.skipthedishes.orders.entities.Order;
+import com.github.lairmartes.hackaton.skipthedishes.orders.entities.Order;
 
 public interface OrderRepository extends PagingAndSortingRepository<Order, Long> {
 	
