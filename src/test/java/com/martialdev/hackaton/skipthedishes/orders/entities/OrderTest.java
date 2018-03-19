@@ -12,14 +12,14 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MealOrderTest {
+public class OrderTest {
 	
 	@Mock
-	MealOrderItem itemOneMock;
+	OrderItem itemOneMock;
 	@Mock
-	MealOrderItem itemTwoMock;
+	OrderItem itemTwoMock;
 	@Mock
-	MealOrderItem itemThreeMock;
+	OrderItem itemThreeMock;
 
 	@Test
 	public void testTotalOrder() {
@@ -33,13 +33,13 @@ public class MealOrderTest {
 		when(itemTwoMock.getTotal()).thenReturn(totalItemTwo);
 		when(itemThreeMock.getTotal()).thenReturn(totalItemThree);
 		
-		Set<MealOrderItem> mockOrderItemSet = new HashSet<>();
+		Set<OrderItem> mockOrderItemSet = new HashSet<>();
 		mockOrderItemSet.add(itemOneMock);
 		mockOrderItemSet.add(itemTwoMock);
 		mockOrderItemSet.add(itemThreeMock);
 		
-		MealOrder mealOrderTest = new MealOrder();
-		mealOrderTest.setMealOrderItem(mockOrderItemSet);
+		Order mealOrderTest = new Order();
+		mealOrderTest.setOrderItems(mockOrderItemSet);
 		
 		assertEquals(expectedTotal, mealOrderTest.getTotal(), 0.0);
 	}

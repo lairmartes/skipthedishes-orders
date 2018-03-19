@@ -37,16 +37,17 @@ create table meal_order (
 	DELIVERY_ADDRESS varchar(256),
 	CONTACT varchar(50),
 	STORE_ID int not null,
-	ORDER_STATUS varchar(20),
+	STATUS varchar(20),
 	LAST_UPDATE timestamp default current_timestamp,
     primary key (ID)
 );
 
 create table meal_order_item (
 	ID INT NOT NULL auto_increment,
-    MEAL_ORDER_ID int not null,
+    ORDER_ID int not null,
     PRODUCT_ID int not null,
-    QUANTITY DECIMAL,
+    PRICE decimal,
+    QUANTITY decimal,
     primary key (ID),
-    foreign key (MEAL_ORDER_ID) REFERENCES meal_order(ID) ON DELETE CASCADE
+    foreign key (ORDER_ID) REFERENCES meal_order (ID) ON DELETE CASCADE
 );

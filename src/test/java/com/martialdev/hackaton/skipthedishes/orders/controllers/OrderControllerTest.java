@@ -5,13 +5,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.martialdev.hackaton.skipthedishes.orders.entities.MealOrder;
+import com.martialdev.hackaton.skipthedishes.orders.entities.Order;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OrderControllerTest {
 	
 	@Mock
-	MealOrder mealOrderMock;
+	Order mealOrderMock;
 	
 	
 

@@ -7,12 +7,12 @@ import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MealOrderItemTest {
+public class OrderItemTest {
 	
 	@Test
 	public void testTotalItem() {
 		
-		MealOrderItem mealOrderTest = new MealOrderItem();
+		OrderItem mealOrderTest = new OrderItem();
 		double priceTest = 12.34;
 		double qttyTest = 3;
 		

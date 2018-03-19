@@ -3,19 +3,19 @@ package com.martialdev.hackaton.skipthedishes.orders.entities;
 import java.time.Instant;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class MealOrder {
+@Table(name = "MEAL_ORDER")
+public class Order {
 	
 	/*
 	# ******* order **********
@@ -41,13 +41,14 @@ public class MealOrder {
 	private long id;
 	@CreationTimestamp
 	@Column(updatable=false)
-	private Instant created;
+	private Instant date;
 	private long customerId;
 	private String deliveryAddress;
 	private String contact;
 	private long storeId;
-	@OneToMany(mappedBy = "mealOrder", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<MealOrderItem> mealOrderItems;
+	//@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@Transient
+	private Set<OrderItem> orderItems;
 	private String status;
 	private Instant lastUpdate;
 	
@@ -57,11 +58,12 @@ public class MealOrder {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Instant getCreated() {
-		return created;
+
+	public Instant getDate() {
+		return date;
 	}
-	public void setCreated(Instant created) {
-		this.created = created;
+	public void setDate(Instant date) {
+		this.date = date;
 	}
 	public long getCustomerId() {
 		return customerId;
@@ -87,12 +89,7 @@ public class MealOrder {
 	public void setStoreId(long storeId) {
 		this.storeId = storeId;
 	}
-	public Set<MealOrderItem> getMealOrderItem() {
-		return mealOrderItems;
-	}
-	public void setMealOrderItem(Set<MealOrderItem> mealOrderItem) {
-		this.mealOrderItems = mealOrderItem;
-	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -104,14 +101,21 @@ public class MealOrder {
 	}
 	public void setLastUpdate(Instant lastUpdate) {
 		this.lastUpdate = lastUpdate;
-	}
+	}	
 
+	public Set<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+	public void setOrderItems(Set<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+	
 	public double getTotal() {
 		
 		double result = 0.0;
 		
-		if (mealOrderItems != null) {
-			result = mealOrderItems.stream().mapToDouble(MealOrderItem::getTotal).sum();
+		if (orderItems != null) {
+			result = orderItems.stream().mapToDouble(OrderItem::getTotal).sum();
 		}
 		
 		return result;

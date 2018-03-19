@@ -11,33 +11,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.martialdev.hackaton.skipthedishes.orders.entities.MealOrder;
-import com.martialdev.hackaton.skipthedishes.orders.repos.MealOrderRepository;
+import com.martialdev.hackaton.skipthedishes.orders.entities.Order;
+import com.martialdev.hackaton.skipthedishes.orders.repos.OrderRepository;
 
 @RepositoryRestController
 @RequestMapping(value="/")
-public class MealOrderController {
+public class OrderController {
 	
 	@Autowired
-	MealOrderRepository mealOrderRepository;
+	OrderRepository mealOrderRepository;
 	
 	@PostMapping("/")
-	public ResponseEntity<PersistentEntityResource> save(@RequestBody MealOrder mealOrder, PersistentEntityResourceAssembler assembler) {
+	public ResponseEntity<PersistentEntityResource> save(@RequestBody Order mealOrder, PersistentEntityResourceAssembler assembler) {
 		
-		 //mealOrderRepository.save(mealOrder);
+		mealOrder.setStatus(OrderStatus.CREATED.status());
 		
-		 
-			MealOrder order = new MealOrder();
-			order.setContact(mealOrder.getContact() + ": passou por aqui");
+		System.out.println(mealOrder.getTotal());
 		
+		 mealOrderRepository.save(mealOrder);
 
-		return ResponseEntity.ok(assembler.toResource(order));
+		return ResponseEntity.ok(assembler.toResource(mealOrder));
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<PersistentEntityResource> get(@Param("id") String id, PersistentEntityResourceAssembler assembler) {
 		
-		MealOrder order = new MealOrder();
+		Order order = new Order();
 		
 		return ResponseEntity.ok(assembler.toResource(order));
 		
