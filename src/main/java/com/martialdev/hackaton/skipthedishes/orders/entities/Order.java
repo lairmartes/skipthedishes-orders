@@ -1,6 +1,7 @@
 package com.martialdev.hackaton.skipthedishes.orders.entities;
 
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -104,7 +105,15 @@ public class Order {
 	}	
 
 	public Set<OrderItem> getOrderItems() {
-		return orderItems;
+		
+		Set<OrderItem> result;
+		
+		if (orderItems == null) {
+			result = new HashSet<OrderItem>();
+		} else {
+			result = orderItems;
+		}
+		return result;
 	}
 	public void setOrderItems(Set<OrderItem> orderItems) {
 		this.orderItems = orderItems;

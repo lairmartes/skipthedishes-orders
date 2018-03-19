@@ -13,7 +13,7 @@ public interface OrderRepository extends PagingAndSortingRepository<Order, Long>
 	
 	@Modifying
 	@Transactional
-	@Query("update Order o set o.status = 'cancelled' where o.id = :id")
-	public int cancelOrder(@Param("id") Long id);
+	@Query("update Order o set o.status = :status where o.id = :id")
+	public int changeStatus(@Param("status") String status, @Param("id") Long id);
 
 }

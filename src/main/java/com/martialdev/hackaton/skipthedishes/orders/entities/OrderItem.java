@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.martialdev.hackaton.skipthedishes.products.entities.Product;
 
 @Entity
 @Table(name = "MEAL_ORDER_ITEM")
@@ -24,6 +27,8 @@ public class OrderItem {
 //	@JoinColumn(referencedColumnName = "ID", nullable = false, updatable = false)
 	private long orderId;
 	private long productId;
+	@Transient
+	private Product product;
 	private double price;
 	private double quantity;
 
@@ -70,5 +75,15 @@ public class OrderItem {
 	public double getTotal() {
 		return this.price * this.quantity;
 	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	
 
 }
